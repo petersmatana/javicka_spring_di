@@ -22,7 +22,7 @@ public class MyDocumentTest {
 	@Before
 	public void init() {
 		// /home/smonty/Documents/sprint/SpringExamples/src/main/java/cz/smonty/service/
-		context = new ClassPathXmlApplicationContext("BeanConf.xml");
+		context = new ClassPathXmlApplicationContext("MyDocumentContext.xml");
 		engine = context.getBean(SearchEngine.class);
 		documentType = context.getBean(Type.class);
 	}

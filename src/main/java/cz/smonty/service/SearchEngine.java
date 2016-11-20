@@ -8,5 +8,6 @@ import cz.smonty.model.Type;
 public interface SearchEngine {
 
 	public List<Document> findByType(Type documentType);
+
 	public List<Document> listAll();
 }
