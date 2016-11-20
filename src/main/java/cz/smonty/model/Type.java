@@ -11,7 +11,6 @@ public class Type {
 	}
 
 	public Type(String name, String description, String extension) {
-		super();
 		this.name = name;
 		this.description = description;
 		this.extension = extension;
@@ -20,11 +19,11 @@ public class Type {
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
@@ -39,6 +38,11 @@ public class Type {
 
 	public void setExtension(String extension) {
 		this.extension = extension;
+	}
+
+	@Override
+	public String toString() {
+		return "name = " + this.name + " description = " + this.description + " extension = " + this.extension;
 	}
 
 }

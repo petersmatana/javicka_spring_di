@@ -10,7 +10,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cz.smonty.model.Type;
 import cz.smonty.model.Document;
-import cz.smonty.service.MySearchEngine;
 import cz.smonty.service.SearchEngine;
 
 public class MyDocumentTest {
@@ -21,7 +20,6 @@ public class MyDocumentTest {
 	
 	@Before
 	public void init() {
-		// /home/smonty/Documents/sprint/SpringExamples/src/main/java/cz/smonty/service/
 		context = new ClassPathXmlApplicationContext("MyDocumentContext.xml");
 		engine = context.getBean(SearchEngine.class);
 		documentType = context.getBean(Type.class);
@@ -35,6 +33,7 @@ public class MyDocumentTest {
 		type.setExtension(".pdf");
 		
 		List<Document> pdfDocuments = engine.findByType(type);
+		assertTrue(pdfDocuments.get(0).getName().equals("nejaky pdf"));
 		
 		assertTrue(pdfDocuments.size() == 1);
 	}

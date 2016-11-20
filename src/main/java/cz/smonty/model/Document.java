@@ -61,4 +61,13 @@ public class Document {
 		this.modified = modified;
 	}
 
+	@Override
+	public String toString() {
+		if (this.type == null) {
+			return "name = " + this.name + " location = " + this.location;
+		} else {
+			return "name = " + this.name + " location = " + this.location + "\nTYPE == " + this.type.toString();
+		}
+	}
+
 }
