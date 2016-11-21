@@ -1,5 +1,6 @@
 package cz.smonty.spring;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -14,15 +15,15 @@ import cz.smonty.service.SearchEngine;
 
 public class MyDocumentTest {
 
-	private SearchEngine engine;
 	private ClassPathXmlApplicationContext context;
+	private SearchEngine engine;
 	private Type documentType;
 	
 	@Before
 	public void init() {
-		context = new ClassPathXmlApplicationContext("MyDocumentContext.xml");
-		engine = context.getBean(SearchEngine.class);
-		documentType = context.getBean(Type.class);
+		this.context = new ClassPathXmlApplicationContext("MySearchEngineContext.xml");
+		this.engine = context.getBean(SearchEngine.class);
+		this.documentType = context.getBean(Type.class);
 	}
 	
 	@Test
@@ -35,7 +36,7 @@ public class MyDocumentTest {
 		List<Document> pdfDocuments = engine.findByType(type);
 		assertTrue(pdfDocuments.get(0).getName().equals("nejaky pdf"));
 		
-		assertTrue(pdfDocuments.size() == 1);
+		assertEquals(pdfDocuments.size(), 1);
 	}
 	
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="moje_id_documentDAO" class="cz.smonty.data.DocumentRepository">
+		<property name="doc1" ref="doc1" />
+		<property name="doc2" ref="doc2" />
+	</bean>
+
+	<bean id="doc1" class="cz.smonty.model.Document">
+		<property name="name" value="docasnej soubor" />
+		<property name="location" value="/tmp/kdesi" />
+		<property name="type">
+			<bean id="vnorena_beana" class="cz.smonty.model.Type">
+				<property name="description" value="Plain Text File" />
+				<property name="extension" value=".txt" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="doc2" class="cz.smonty.model.Document">
+		<property name="name" value="zdrojak" />
+		<property name="location" value="~/Documents/projekt/src" />
+	</bean>
+
+</beans>
